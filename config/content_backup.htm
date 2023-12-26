@@ -1,17 +1,21 @@
 <h1>About</h1>
 <h1>w15</h1>
 <p>第一題:</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://www.rapidtables.com/web/color/RGB_Color.html
+// 幾何形狀著色與繪圖練習
+// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
+#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
 #include &lt;math.h&gt;
 
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-void connect_points(gdImagePtr img, int x1, int y1, int x2, int y2, int thickness, int color);
 
 int main() {
+    // width 3: height 2
     int width = 1200;
-    int height = (int)(width * 2.0 / 3.0);
+    // 國旗長寬比為 3:2
+    int height = (int)(width*2.0 / 3.0);
 
     gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
@@ -33,84 +37,127 @@ void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
     int red, white, blue;
-
     int center_x = (int)(width / 4);
     int center_y = (int)(height / 4);
-
     int sun_radius = (int)(width / 8);
     int white_circle_dia = sun_radius;
     int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
-
     red = gdImageColorAllocate(img, 255, 0, 0);
     white = gdImageColorAllocate(img, 255, 255, 255);
     blue = gdImageColorAllocate(img, 0, 0, 149);
-
     gdImageFilledRectangle(img, 0, 0, width, height, red);
     gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
     draw_white_sun(img, center_x, center_y, sun_radius, white);
     gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
     gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
 
-    connect_points(img, 281, 300, 214, 246, 5, white);
-    connect_points(img, 214, 246, 282, 180, 5, white);
-    connect_points(img, 282, 180, 348, 246, 5, white);
-    connect_points(img, 348, 246, 280, 300, 5, white);
+  // 第二組 ABED 四個點的座標
+  int ax2, ay2, bx2, by2, ex2, ey2, dx2, dy2;
+  gdPoint points2[4];
+
+  ax2 = 375;
+  ay2 = 70;
+  bx2 = 264;
+  by2 = 179;
+  ex2 = 224;
+  ey2 = 329;
+  dx2 = 224;
+  dy2 = 329;
+
+  // 連接第二組 ABED 四個點的座標
+  gdImageLine(img, ax2, ay2, bx2, by2, white);
+  gdImageLine(img, bx2, by2, ex2, ey2, white);
+  gdImageLine(img, ex2, ey2, dx2, dy2, white);
+  gdImageLine(img, dx2, dy2, ax2, ay2, white);
+
+}
+
+  void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
+      float deg = M_PI/180;
+      float sr = sun_radius/tan(75*deg);
+      int ax, ay, bx, by, dx, dy, ex, ey;
+      gdPoint points[4];
+
+      ax = center_x;
+      ay = center_y - sun_radius;
+      bx = center_x - sun_radius*tan(15*deg);
+      by = center_y;
+      ex = center_x;
+      ey = center_y + sun_radius;
+      dx = center_x + sun_radius*tan(15*deg);
+      dy = center_y;
+
+      // 連接第二組 ABED 四個點的座標
+      gdImageLine(img, ax, ay, bx, by, color);
+      gdImageLine(img, bx, by, ex, ey, color);
+      gdImageLine(img, ex, ey, dx, dy, color);
+      gdImageLine(img, dx, dy, ax, ay, color);
+  }</pre>
+<p><img alt="" height="300" src="/images/roc_flag_in_gd.png" width="449"/></p>
+<p>第二題:交點程式</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+void draw_roc_flag(gdImagePtr img);
+void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
+void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr);
+
+int main() {
+    // Your existing code here
+
+    int width = 1200;
+    int height = (int)(width * 2.0 / 3.0);
+    int center_x = (int)(width / 4);
+    int center_y = (int)(height / 4);
+    int sun_radius = (int)(width / 8);
+    int white_circle_dia = sun_radius;
+    int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
+
+    find_intersection(375, 70, 264, 179, center_x, center_y, blue_circle_dia / 2);
+    find_intersection(264, 179, 224, 329, center_x, center_y, blue_circle_dia / 2);
+    find_intersection(224, 329, 224, 329, center_x, center_y, blue_circle_dia / 2);
+    find_intersection(224, 329, 375, 70, center_x, center_y, blue_circle_dia / 2);
+
+    // Your existing code here
+
+    return 0;
+}
+
+void draw_roc_flag(gdImagePtr img) {
+    // Your existing code here
 }
 
 void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
-    float deg = M_PI / 180;
-    float sr = sun_radius / tan(75 * deg);
-    int ax, ay, bx, by, dx, dy, ex, ey;
-    gdPoint points[4];
-
-    ax = center_x;
-    ay = center_y - sun_radius;
-    bx = center_x - sun_radius * tan(15 * deg);
-    by = center_y;
-    ex = center_x;
-    ey = center_y + sun_radius;
-    dx = center_x + sun_radius * tan(15 * deg);
-    dy = center_y;
-
-    for (int i = 1; i &lt;= 6; i++) {
-        points[0].x = ax + sun_radius * sin(30 * deg * i);
-        points[0].y = ay + sun_radius - sun_radius * cos(30 * deg * i);
-
-        points[1].x = bx + sr - sr * cos(30 * deg * i);
-        points[1].y = by - sr * sin(30 * deg * i);
-
-        points[2].x = ex - sun_radius * sin(30 * deg * i);
-        points[2].y = ey - (sun_radius - sun_radius * cos(30 * deg * i));
-
-        points[3].x = dx - (sr - sr * cos(30 * deg * i));
-        points[3].y = dy + sr * sin(30 * deg * i);
-
-        gdImageFilledPolygon(img, points, 4, color);
-        gdImagePolygon(img, points, 4, color);
-    }
+    // Your existing code here
 }
 
-void connect_points(gdImagePtr img, int x1, int y1, int x2, int y2, int thickness, int color) {
-    int dx = x2 - x1;
-    int dy = y2 - y1;
-    int steps = fmax(abs(dx), abs(dy));
+void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
+    float m, c, A, B, C, det, t;
 
-    float xIncrement = dx / (float)steps;
-    float yIncrement = dy / (float)steps;
+    m = (float)(y2 - y1) / (x2 - x1);
 
-    for (int i = 0; i &lt;= steps; i++) {
-        int x = round(x1 + i * xIncrement);
-        int y = round(y1 + i * yIncrement);
+    c = y1 - m * x1;
 
-        gdImageFilledRectangle(img, x - thickness / 2, y - thickness / 2, x + thickness / 2, y + thickness / 2, color);
+    A = 1 + m * m;
+    B = -2 * cx + 2 * m * (c - cy);
+    C = cx * cx + (c - cy) * (c - cy) - cr * cr;
+
+    det = B * B - 4 * A * C;
+
+    if (det &gt;= 0) {
+        t = (-B + sqrt(det)) / (2 * A);
+        int x = x1 + t * (x2 - x1);
+        int y = y1 + t * (y2 - y1);
+        printf("Intersection point: (%d, %d)\n", x, y);
     }
+
+    t = (-B - sqrt(det)) / (2 * A);
+    int x = x1 + t * (x2 - x1);
+    int y = y1 + t * (y2 - y1);
+    printf("Intersection point: (%d, %d)\n", x, y);
 }</pre>
-<p><img alt="" height="300" src="/images/roc_flag_in_gd.png" width="449"/></p>
-<p>第二題:找出座標</p>
-<p>A:(282, 180)</p>
-<p>B:(280, 242)</p>
-<p>E:(214, 246)</p>
-<p>D:(216, 184)</p><h1>線上繪圖</h1>
+<h1>線上繪圖</h1>
 <p><a href="https://mde.tw/cpnote/content/%E7%B7%9A%E4%B8%8A%E7%B9%AA%E5%9C%96.html?src=https://gist.githubusercontent.com/41223227/0d3fb93b6c601d27f0dfdf8dd2b87782/raw/cf4d86ee6203c5f301e2ae3b4f7c2a3cab2223c5/w14_1_helloworld.py">列印 10 次 Hello World</a></p>
 <p></p>
 <h1>w13</h1>

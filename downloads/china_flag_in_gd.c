@@ -2,82 +2,82 @@
 #include <gd.h>
 #include <math.h>
 
-void draw_china_flag(gdImagePtr img);
-void draw_five_stars(gdImagePtr img, int x, int y, int size, int color);
-void draw_one_star(gdImagePtr img, int x, int y, int size, int color);
+void draw_chinese_flag(gdImagePtr img);
 
 int main() {
-    // 設定國旗寬高比為3:2
-    int width = 1200;
-    int height = (int)(width * 2.0 / 3.0);
+    int width = 300; // 國旗寬度
+    int height = 200; // 國旗高度
 
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
+    gdImagePtr im = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(im, 0);
 
-    draw_china_flag(img);
+    draw_chinese_flag(im);
 
-    FILE *outputFile = fopen("./../images/china_flag_in_gd.png", "wb");
+    FILE *outputFile = fopen("./../images/proc_flag.png", "wb");
     if (outputFile == NULL) {
-        fprintf(stderr, "Error opening the output file.\n");
+        fprintf(stderr, "打开输出文件时出错。\n");
         return 1;
     }
-    gdImagePngEx(img, outputFile, 9);
+
+    gdImagePngEx(im, outputFile, 9);
     fclose(outputFile);
-    gdImageDestroy(img);
+    gdImageDestroy(im);
+
     return 0;
 }
 
-void draw_china_flag(gdImagePtr img) {
+// 声明 draw_star 函数
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle);
+
+void draw_chinese_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
     int red, yellow;
 
-    // 設定顏色
-    red = gdImageColorAllocate(img, 206, 17, 38);  // 中國紅
-    yellow = gdImageColorAllocate(img, 255, 223, 0); // 中國黃
+    // 國旗顏色
+    red = gdImageColorAllocate(img, 255, 0, 0); // 紅色背景
+    yellow = gdImageColorAllocate(img, 255, 255, 0); // 黃色星星
 
-    // 繪製紅色底色
+    // 畫紅色背景
     gdImageFilledRectangle(img, 0, 0, width, height, red);
 
-    // 計算五星的位置
-    int x1 = width / 30;
-    int y1 = height / 5;
-    int x2 = x1 + width / 5;
-    int y2 = y1;
-    int x3 = x1 + width / 15;
-    int y3 = y1 + height / 10;
-    int x4 = x1 + width / 10;
-    int y4 = y1 + height / 5;
-    int x5 = x1;
-    int y5 = y1 + height / 5;
+    // 設置星星的大小和位置
+    int star_size = (int)(0.28 * height);
+    int star_x = (int)(0.165 * width);
+    int star_y = (int)(0.265 * height);
 
-    // 繪製五星
-    draw_five_stars(img, x1, y1, width / 30, yellow);
-    draw_five_stars(img, x2, y2, width / 30, yellow);
-    draw_five_stars(img, x3, y3, width / 30, yellow);
-    draw_five_stars(img, x4, y4, width / 30, yellow);
-    draw_five_stars(img, x5, y5, width / 30, yellow);
+    // 畫大星星
+    draw_star(img, star_x, star_y, star_size, yellow, 11.0);
+
+    // 繪製小星星，位置根據實際國旗比例計算
+    double radius = 0.15 * height;
+    double angle = 360 / 7 * M_PI / 179.0;
+    double rotation = -M_PI / 7.5;
+    int cx = (int)(0.32 * width);
+    int cy = (int)(0.27 * height);
+
+    for (int i = -1; i < 3; i++) {
+        int x = (int)(cx + radius * cos(i * angle + rotation));
+        int y = (int)(cy + radius * sin(i * angle + rotation));
+        draw_star(img, x, y, 19, yellow, M_PI / 5.0);
+    }
 }
 
-void draw_five_stars(gdImagePtr img, int x, int y, int size, int color) {
-    int star_size = size * 1.2;
-    draw_one_star(img, x, y, star_size, color);
-
-    int offset_x = size * 3;
-    int offset_y = size * 3;
-    draw_one_star(img, x + offset_x, y + offset_y, star_size, color);
-}
-
-void draw_one_star(gdImagePtr img, int x, int y, int size, int color) {
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle) {
     gdPoint points[10];
 
-    // 計算十個頂點的座標
+    // 计算星形的五个外点和五个内点
+    double outer_radius = size / 2;
+    double inner_radius = size / 6;
+    double angle = M_PI / 5.0;
+
     for (int i = 0; i < 10; i++) {
-        int angle = i % 2 == 0 ? 18 * i : 18 * i + 36;
-        points[i].x = x + size * cos(angle * M_PI / 180);
-        points[i].y = y + size * sin(angle * M_PI / 180);
+        double radius = (i % 2 == 0) ? outer_radius : inner_radius;
+        double theta = rotation_angle + i * angle;
+        points[i].x = x + radius * cos(theta);
+        points[i].y = y + radius * sin(theta);
     }
 
-    // 繪製五角星
+    // 使用 gdImageFilledPolygon 绘制星形
     gdImageFilledPolygon(img, points, 10, color);
 }
