@@ -2,6 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,9 +142,243 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='ANSIS.html'>Next</a> >> ANSIS<br /><h1>About</h1>
-<p><a href="https://github.com/mdecycu/cmsite">mdecycu/cmsite: cmsimde template uses mdecycu/cmsimde as submodule (github.com)</a></p>
-<br /> <a href='ANSIS.html'>Next</a> >> ANSIS</div>
+    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='c_ex.html'>Next</a> >> c_ex<br /><h1>ANSIS</h1>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()  
+{
+    // Print Name
+    printf("Name   : Alexandra Abramov\n"); 
+
+    // Print Date of Birth
+    printf("DOB    : July 14, 1975\n"); 
+
+    // Print Mobile Number
+    printf("Mobile : 99-9999999999\n"); 
+
+    // Indicate successful execution
+    return(0); 
+}</pre>
+<p><img alt="" height="100" src="./../images/ansis1.c.png" width="313"/></p>
+<p>2.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Check for C standard version
+    #if __STDC_VERSION__ &gt;=  201710L
+        printf("We are using C18!\n");
+    #elif __STDC_VERSION__ &gt;= 201112L
+        printf("We are using C11!\n");
+    #elif __STDC_VERSION__ &gt;= 199901L
+        printf("We are using C99!\n");
+    #else
+        printf("We are using C89/C90!\n");
+    #endif
+
+    // Indicate successful execution
+    return 0;
+}</pre>
+<p><img alt="" height="100" src="./../images/ansis2.png" width="465"/></p>
+<p>3.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+   int radius;      /* Variable to store the radius of the circle */
+   float area, perimeter;    /* Variables to store the area and perimeter of the circle */ 
+   radius = 6;      /* Assigning a value to the radius */
+
+   /* Calculating the perimeter of the circle */
+   perimeter = 2 * 3.14 * radius;
+   printf("Perimeter of the Circle = %f inches\n", perimeter);
+
+   /* Calculating the area of the circle */
+   area = 3.14 * radius * radius;
+   printf("Area of the Circle = %f square inches\n", area);
+
+   return(0);
+}</pre>
+<p><img alt="" height="100" src="./../images/ansis3.png" width="417"/></p>
+<p>4.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int days, years, weeks;
+
+    days = 1329; // Total number of days
+
+    // Converts days to years, weeks and days
+    years = days/365; // Calculate years
+    weeks = (days % 365)/7; // Calculate weeks
+    days = days - ((years*365) + (weeks*7)); // Calculate remaining days
+
+    // Print the results
+    printf("Years: %d\n", years);
+    printf("Weeks: %d\n", weeks);
+    printf("Days: %d \n", days);
+
+    return 0;
+}</pre>
+<p><img alt="" height="100" src="./../images/ansis4.png" width="339"/></p>
+<p>5.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main() {
+    float S = 0;
+    int i;
+
+    // Loop to calculate the sum
+    for(i=1; i&lt;=50; i++) {
+        S += (float)1/i;
+    }
+
+    // Print the result
+    printf("Value of S: %.2f\n", S);
+
+    return 0;
+}</pre>
+<p><img alt="" height="100" src="./../images/ansis5.png" width="500"/></p>
+<p>6.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include&lt;stdio.h&gt;
+#define MAX 10
+
+int main() {
+    int n, a, bi_nom;
+
+    // Print header
+    printf("Mx   ");
+    for (n = 0; n &lt;= 10; ++n)
+        printf("%d   ", n);
+    printf("\n----------------------------------------------------------\n");
+
+    n = 0;
+
+    do {
+        a = 0, bi_nom = 1;    
+        printf("%2d", n);
+
+        while (a &lt;= n) {
+            if (n == 0 || a == 0)
+                printf("%4d", bi_nom);
+            else {
+                bi_nom = bi_nom * (n - a + 1) / a;
+                printf("%4d", bi_nom);
+            }
+            a = a + 1;
+        }
+
+        printf("\n");
+        n = n + 1;
+    } while (n &lt;= MAX);
+
+    // Print footer
+    printf("----------------------------------------------------------");
+
+    return 0;
+}</pre>
+<p><img alt="" height="200" src="./../images/ansis6.png" width="370"/></p>
+<p>7.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#define N 10
+
+int main() {
+  char chr;
+  printf("\n");
+
+  // Loop through ASCII values from 65 ('A') to 122 ('z')
+  for (chr = 65; chr &lt;= 122; chr = chr + 1) {
+    // Exclude characters between 'Z' and 'a'
+    if (chr &gt; 90 &amp;&amp; chr &lt; 97)
+      continue;
+
+    printf("[%2d-%c] ", chr, chr);
+  }
+
+  return 0;
+}</pre>
+<p><img alt="" height="200" src="./../images/ansis7.png" width="531"/></p>
+<p>8.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include&lt;stdio.h&gt;
+int main()
+{
+    // Define a string containing lowercase and uppercase letters
+    char* letters = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int n;
+
+    // Print header
+    printf("List of integer equivalents of letters (a-z, A-Z).\n");
+    printf("==================================================\n");
+
+    // Loop through each character and print its integer equivalent
+    for(n=0; n&lt;53; n++) {
+        printf("%d\t", letters[n]);
+
+        // Add a newline every 6 characters for better formatting
+        if((n+1) % 6 == 0)
+             printf("\n");
+    }
+
+    return 0;
+}</pre>
+<p><img alt="" height="200" src="./../images/ansis8.png" width="373"/></p>
+<p>9.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include&lt;stdio.h&gt;
+int main()
+{
+    int x; // Declare variable x
+
+    // Print header for table
+    printf("x\tx+2\tx+4\tx+6\n\n");
+    printf("---------------------------\n");
+
+    // Loop to generate and print table values
+    for(x=1; x&lt;=15; x+=3)
+        printf("%d\t%d\t%d\t%d\n", x, (x+2), (x+4), (x+6));    
+
+    return 0; // Indicate successful program execution
+}</pre>
+<p><img alt="" height="200" src="./../images/ansis9.png" width="361"/></p>
+<p>10.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;inttypes.h&gt;
+#include &lt;stdbool.h&gt;
+int main(void) {
+    // Display title
+    printf("Size of C data types:\n\n");
+    // Display column headers
+    printf("%-20s %-20s\n", "Type", "Bytes");
+    // Display separator line
+    printf("--------------------------------\n");
+    // Print size of various data types
+    printf("%-20s %lu\n", "char", sizeof(char));
+    printf("%-20s %lu\n", "int8_t", sizeof(int8_t));
+    printf("%-20s %lu\n", "unsigned char", sizeof(unsigned char));
+    printf("%-20s %lu\n", "uint8_t", sizeof(uint8_t));
+    printf("%-20s %lu\n", "short", sizeof(short));
+    printf("%-20s %lu\n", "int16_t", sizeof(int16_t));
+    printf("%-20s %lu\n", "uint16_t", sizeof(uint16_t));
+    printf("%-20s %lu\n", "int", sizeof(int));
+    printf("%-20s %lu\n", "unsigned", sizeof(unsigned));
+    printf("%-20s %lu\n", "long", sizeof(long));
+    printf("%-20s %lu\n", "unsigned long", sizeof(unsigned long));
+    printf("%-20s %lu\n", "int32_t", sizeof(int32_t));
+    printf("%-20s %lu\n", "uint32_t", sizeof(uint32_t));
+    printf("%-20s %lu\n", "long long", sizeof(long long));
+    printf("%-20s %lu\n", "int64_t", sizeof(int64_t));
+    printf("%-20s %lu\n", "unsigned long long", sizeof(unsigned long long));
+    printf("%-20s %lu\n", "uint64_t", sizeof(uint64_t));
+    printf("%-20s %lu\n", "float", sizeof(float));
+    printf("%-20s %lu\n", "double", sizeof(double));
+    printf("%-20s %lu\n", "long double", sizeof(long double));
+    printf("%-20s %lu\n", "bool", sizeof(bool));
+    // Add a newline for better output formatting
+    printf("\n");
+    // Indicate successful execution of the program
+    return 0;
+}</pre>
+<p><img alt="" height="200" src="./../images/ansis10.png" width="252"/></p>
+<br />About << <a href='About.html'>Previous</a> <a href='c_ex.html'>Next</a> >> c_ex</div>
         
     <!-- footer -->
       <div class="container">
