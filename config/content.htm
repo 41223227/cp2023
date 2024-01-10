@@ -404,7 +404,8 @@ float result;
 result = 3.14159 * (double)2 * r;
 return ( result );
 }</pre>
-<p><img alt="" height="100" src="/images/ex10.c.png" width="513"/></p><h2>introduce to c:</h2>
+<p><img alt="" height="100" src="/images/ex10.c.png" width="513"/></p>
+<h2>introduce to c:</h2>
 <p>1.</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#define _CRT_SECURE_NO_WARNINGS
 #include&lt;stdio.h&gt;
@@ -754,7 +755,152 @@ number*/
  }
  printf("PI is %lf \n", 2 * (double)i / (double)count);
 }</pre>
-<p><img alt="" height="100" src="/images/ex20.c.png" width="274"/></p><h1>W15</h1>
+<p><img alt="" height="100" src="/images/ex20.c.png" width="274"/></p>
+<h1>W16</h1>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;gd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+#define WIDTH 800
+#define HEIGHT 600
+#define SCALE 100
+
+void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
+    int startX = x1 ;
+    int endX = x1 + width ;
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2 , startX + width / 4 + height / 2 + 4 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 4 * height, y - height / 2, startX + width / 4 + height / 2 + 5 * height, y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+  // 向上45度
+    gdImageLine(im, startX + width / 4 + height / 2 + 5 * height, y + height / 2, startX + width / 4 + height / 2 + 5 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+  gdImageLine(im, startX + width / 4 + height / 2 + 5 * height + height / 2, y, startX + width / 4 + height / 2 + 5 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+
+  {
+    int startX = 100;
+  gdImageColorAllocate(im, 0, 0, 255);
+
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+ }
+
+  {
+    int startX = 585;
+  gdImageColorAllocate(im, 0, 0, 255);
+
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+  // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+        // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, 100, y +20, 700, y +20, gdImageColorAllocate(im, 0, 255, 0));
+
+}
+}
+
+int main() {
+    gdImagePtr im;
+    FILE *outputFile;
+
+    // 创建图像对象
+    im = gdImageCreateTrueColor(WIDTH, HEIGHT);
+    if (im == NULL) {
+        fprintf(stderr, "Error creating GD image.\n");
+        return 1;
+    }
+
+    outputFile = fopen("1.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+
+    int black, white, red, blue, green;
+
+    black = gdImageColorAllocate(im, 0, 0, 0);
+    white = gdImageColorAllocate(im, 255, 255, 255);
+    red = gdImageColorAllocate(im, 255, 0, 0);
+    blue = gdImageColorAllocate(im, 0, 0, 255);
+green = gdImageColorAllocate(im, 0, 255, 0);
+    gdImageFilledRectangle(im, 0, 0, WIDTH - 1, HEIGHT - 1, white);
+
+    // 绘制墙面
+    gdImageLine(im, SCALE, SCALE, SCALE, HEIGHT - SCALE, black);
+    gdImageLine(im, WIDTH - SCALE, SCALE, WIDTH - SCALE, HEIGHT - SCALE, black);
+
+// 绘制彈簧
+    drawResistor(im, WIDTH / 3 + SCALE / 2, HEIGHT / 2, SCALE / 2, SCALE / 4);
+
+    // 绘制质量（方形）
+    gdImageFilledRectangle(im, WIDTH / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+    gdImageFilledRectangle(im, WIDTH * 2 / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH * 2 / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+
+  gdImageFilledRectangle(im, 100, HEIGHT +300, 700, HEIGHT /2 +49 , black);
+
+
+
+    gdImagePng(im, outputFile);
+    fclose(outputFile);
+    gdImageDestroy(im);
+
+    return 0;
+}</pre>
+<p><img alt="" height="200" src="/images/1.png" width="267"/></p>
+<h1>W15</h1>
 <p>第一題:</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://www.rapidtables.com/web/color/RGB_Color.html
 // 幾何形狀著色與繪圖練習
@@ -912,7 +1058,8 @@ void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
     int y = y1 + t * (y2 - y1);
     printf("Intersection point: (%d, %d)\n", x, y);
 }</pre>
-<p><a href="/downloads/W15 video.mp4">教學影片</a></p><h1>線上繪圖</h1>
+<p><a href="/downloads/W15 video.mp4">教學影片</a></p>
+<h1>線上繪圖</h1>
 <p><a href="https://mde.tw/cpnote/content/%E7%B7%9A%E4%B8%8A%E7%B9%AA%E5%9C%96.html?src=https://gist.githubusercontent.com/41223227/0d3fb93b6c601d27f0dfdf8dd2b87782/raw/cf4d86ee6203c5f301e2ae3b4f7c2a3cab2223c5/w14_1_helloworld.py">列印 10 次 Hello World</a></p>
 <p></p>
 <h1>w13</h1>

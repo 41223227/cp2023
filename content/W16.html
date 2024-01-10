@@ -142,166 +142,151 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W16 << <a href='W16.html'>Previous</a> <a href='線上繪圖.html'>Next</a> >> 線上繪圖<br /><h1>W15</h1>
-<p>第一題:</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://www.rapidtables.com/web/color/RGB_Color.html
-// 幾何形狀著色與繪圖練習
-// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
+    <div id="tipue_search_content">introduce to c: << <a href='introduce to c:.html'>Previous</a> <a href='W15.html'>Next</a> >> W15<br /><h1>W16</h1>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;gd.h&gt;
 #include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
 #include &lt;math.h&gt;
 
-void draw_roc_flag(gdImagePtr img);
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
+#define WIDTH 800
+#define HEIGHT 600
+#define SCALE 100
+
+void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
+    int startX = x1 ;
+    int endX = x1 + width ;
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2 , startX + width / 4 + height / 2 + 4 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 4 * height, y - height / 2, startX + width / 4 + height / 2 + 5 * height, y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+  // 向上45度
+    gdImageLine(im, startX + width / 4 + height / 2 + 5 * height, y + height / 2, startX + width / 4 + height / 2 + 5 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+  gdImageLine(im, startX + width / 4 + height / 2 + 5 * height + height / 2, y, startX + width / 4 + height / 2 + 5 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+
+  {
+    int startX = 100;
+  gdImageColorAllocate(im, 0, 0, 255);
+
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+ }
+
+  {
+    int startX = 585;
+  gdImageColorAllocate(im, 0, 0, 255);
+
+
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+  // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+        // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+
+    gdImageLine(im, 100, y +20, 700, y +20, gdImageColorAllocate(im, 0, 255, 0));
+
+}
+}
 
 int main() {
-    // width 3: height 2
-    int width = 1200;
-    // 國旗長寬比為 3:2
-    int height = (int)(width*2.0 / 3.0);
+    gdImagePtr im;
+    FILE *outputFile;
 
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
+    // 创建图像对象
+    im = gdImageCreateTrueColor(WIDTH, HEIGHT);
+    if (im == NULL) {
+        fprintf(stderr, "Error creating GD image.\n");
+        return 1;
+    }
 
-    draw_roc_flag(img);
-
-    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");
+    outputFile = fopen("1.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
         return 1;
     }
-    gdImagePngEx(img, outputFile, 9);
+
+    int black, white, red, blue, green;
+
+    black = gdImageColorAllocate(im, 0, 0, 0);
+    white = gdImageColorAllocate(im, 255, 255, 255);
+    red = gdImageColorAllocate(im, 255, 0, 0);
+    blue = gdImageColorAllocate(im, 0, 0, 255);
+green = gdImageColorAllocate(im, 0, 255, 0);
+    gdImageFilledRectangle(im, 0, 0, WIDTH - 1, HEIGHT - 1, white);
+
+    // 绘制墙面
+    gdImageLine(im, SCALE, SCALE, SCALE, HEIGHT - SCALE, black);
+    gdImageLine(im, WIDTH - SCALE, SCALE, WIDTH - SCALE, HEIGHT - SCALE, black);
+
+// 绘制彈簧
+    drawResistor(im, WIDTH / 3 + SCALE / 2, HEIGHT / 2, SCALE / 2, SCALE / 4);
+
+    // 绘制质量（方形）
+    gdImageFilledRectangle(im, WIDTH / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+    gdImageFilledRectangle(im, WIDTH * 2 / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH * 2 / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+
+  gdImageFilledRectangle(im, 100, HEIGHT +300, 700, HEIGHT /2 +49 , black);
+
+
+
+    gdImagePng(im, outputFile);
     fclose(outputFile);
-    gdImageDestroy(img);
-    return 0;
-}
-
-void draw_roc_flag(gdImagePtr img) {
-    int width = gdImageSX(img);
-    int height = gdImageSY(img);
-    int red, white, blue;
-    int center_x = (int)(width / 4);
-    int center_y = (int)(height / 4);
-    int sun_radius = (int)(width / 8);
-    int white_circle_dia = sun_radius;
-    int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
-    red = gdImageColorAllocate(img, 255, 0, 0);
-    white = gdImageColorAllocate(img, 255, 255, 255);
-    blue = gdImageColorAllocate(img, 0, 0, 149);
-    gdImageFilledRectangle(img, 0, 0, width, height, red);
-    gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
-    draw_white_sun(img, center_x, center_y, sun_radius, white);
-    gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
-    gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
-  // 第二組 ABED 四個點的座標
-  int ax2, ay2, bx2, by2, ex2, ey2, dx2, dy2;
-  gdPoint points2[4];
-
-  ax2 = 375;
-  ay2 = 70;
-  bx2 = 264;
-  by2 = 179;
-  ex2 = 224;
-  ey2 = 329;
-  dx2 = 224;
-  dy2 = 329;
-
-  // 連接第二組 ABED 四個點的座標
-  gdImageLine(img, ax2, ay2, bx2, by2, white);
-  gdImageLine(img, bx2, by2, ex2, ey2, white);
-  gdImageLine(img, ex2, ey2, dx2, dy2, white);
-  gdImageLine(img, dx2, dy2, ax2, ay2, white);
-
-}
-
-  void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
-      float deg = M_PI/180;
-      float sr = sun_radius/tan(75*deg);
-      int ax, ay, bx, by, dx, dy, ex, ey;
-      gdPoint points[4];
-
-      ax = center_x;
-      ay = center_y - sun_radius;
-      bx = center_x - sun_radius*tan(15*deg);
-      by = center_y;
-      ex = center_x;
-      ey = center_y + sun_radius;
-      dx = center_x + sun_radius*tan(15*deg);
-      dy = center_y;
-
-      // 連接第二組 ABED 四個點的座標
-      gdImageLine(img, ax, ay, bx, by, color);
-      gdImageLine(img, bx, by, ex, ey, color);
-      gdImageLine(img, ex, ey, dx, dy, color);
-      gdImageLine(img, dx, dy, ax, ay, color);
-  }</pre>
-<p><img alt="" height="200" src="./../images/roc_list_coord_flag.png" width="300"/></p>
-<p>第二題:交點程式</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
-#include &lt;math.h&gt;
-
-void draw_roc_flag(gdImagePtr img);
-void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr);
-
-int main() {
-    // Your existing code here
-
-    int width = 1200;
-    int height = (int)(width * 2.0 / 3.0);
-    int center_x = (int)(width / 4);
-    int center_y = (int)(height / 4);
-    int sun_radius = (int)(width / 8);
-    int white_circle_dia = sun_radius;
-    int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
-
-    find_intersection(375, 70, 264, 179, center_x, center_y, blue_circle_dia / 2);
-    find_intersection(264, 179, 224, 329, center_x, center_y, blue_circle_dia / 2);
-    find_intersection(224, 329, 224, 329, center_x, center_y, blue_circle_dia / 2);
-    find_intersection(224, 329, 375, 70, center_x, center_y, blue_circle_dia / 2);
-
-    // Your existing code here
+    gdImageDestroy(im);
 
     return 0;
-}
-
-void draw_roc_flag(gdImagePtr img) {
-    // Your existing code here
-}
-
-void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
-    // Your existing code here
-}
-
-void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
-    float m, c, A, B, C, det, t;
-
-    m = (float)(y2 - y1) / (x2 - x1);
-
-    c = y1 - m * x1;
-
-    A = 1 + m * m;
-    B = -2 * cx + 2 * m * (c - cy);
-    C = cx * cx + (c - cy) * (c - cy) - cr * cr;
-
-    det = B * B - 4 * A * C;
-
-    if (det &gt;= 0) {
-        t = (-B + sqrt(det)) / (2 * A);
-        int x = x1 + t * (x2 - x1);
-        int y = y1 + t * (y2 - y1);
-        printf("Intersection point: (%d, %d)\n", x, y);
-    }
-
-    t = (-B - sqrt(det)) / (2 * A);
-    int x = x1 + t * (x2 - x1);
-    int y = y1 + t * (y2 - y1);
-    printf("Intersection point: (%d, %d)\n", x, y);
 }</pre>
-<p><a href="./../downloads/W15 video.mp4">教學影片</a></p>
-<br />W16 << <a href='W16.html'>Previous</a> <a href='線上繪圖.html'>Next</a> >> 線上繪圖</div>
+<p><img alt="" height="200" src="./../images/1.png" width="267"/></p>
+<br />introduce to c: << <a href='introduce to c:.html'>Previous</a> <a href='W15.html'>Next</a> >> W15</div>
         
     <!-- footer -->
       <div class="container">
