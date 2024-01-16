@@ -1,10 +1,11 @@
-// https://en.wikipedia.org/wiki/Flag_of_the_United_States
-// https://www.britannica.com/topic/flag-of-the-United-States-of-America
-// 以下為幾乎要繪製完成的美國國旗, 請修改下列原始碼, 令其繪出正確的美國國旗
+// 使用標準輸入/輸出函數
 #include <stdio.h>
+// 繪製gd函式庫
 #include <gd.h>
+// 繪製數學函數庫
 #include <math.h>
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_usa_flag(gdImagePtr img);
 void draw_star(gdImagePtr img, int x, int y, int size, int color);
 
