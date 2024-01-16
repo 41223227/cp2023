@@ -1,11 +1,11 @@
-// https://www.rapidtables.com/web/color/RGB_Color.html
-// 幾何形狀著色與繪圖練習
-// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
+// 使用標準輸入/輸出函數
 #include <stdio.h>
+// 繪製gd函式庫
 #include <gd.h>
+// 繪製數學函數庫
 #include <math.h>
 
-// 圖形繪製函數
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 
