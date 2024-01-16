@@ -1,11 +1,13 @@
-#include <gd.h>
+// 使用標準輸入/輸出函數
 #include <stdio.h>
-#include <math.h>
+// 繪製gd函式庫
+#include <gd.h>
 
 #define WIDTH 800
 #define HEIGHT 600
 #define SCALE 100
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
     int startX = x1 ;
     int endX = x1 + width ;

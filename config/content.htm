@@ -758,14 +758,16 @@ number*/
 <p><img alt="" height="100" src="/images/ex20.c.png" width="274"/></p>
 <h1>W16</h1>
 <p>1.</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;gd.h&gt;
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
+// 繪製gd函式庫
+#include &lt;gd.h&gt;
 
 #define WIDTH 800
 #define HEIGHT 600
 #define SCALE 100
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
     int startX = x1 ;
     int endX = x1 + width ;
@@ -982,8 +984,7 @@ int main() {
 }
 </pre>
 <p><img alt="" height="200" src="/images/motion_plot.png" width="267"/></p>
-<p></p>
-<h1>W15</h1>
+<p></p><h1>W15</h1>
 <p>第一題:</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;

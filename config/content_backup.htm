@@ -985,14 +985,14 @@ int main() {
 <p></p>
 <h1>W15</h1>
 <p>第一題:</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// https://www.rapidtables.com/web/color/RGB_Color.html
-// 幾何形狀著色與繪圖練習
-// 以下 gd 繪圖程式嘗試畫出 ROC 國旗, 請根據下列程式內容完成後續的國旗繪圖
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
+// 繪製gd函式庫
 #include &lt;gd.h&gt;
+// 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// 圖形繪製函數
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 
@@ -1078,13 +1078,17 @@ void draw_roc_flag(gdImagePtr img) {
       gdImageLine(img, ex, ey, dx, dy, color);
       gdImageLine(img, dx, dy, ax, ay, color);
   }
-</pre>
+  </pre>
 <p><img alt="" height="200" src="/images/roc_list_coord_flag.png" width="300"/></p>
 <p>第二題:交點程式</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
+#include &lt;stdio.h&gt;
+// 繪製gd函式庫
 #include &lt;gd.h&gt;
+// 繪製數學函數庫
 #include &lt;math.h&gt;
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr);
@@ -1142,7 +1146,8 @@ void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
     int x = x1 + t * (x2 - x1);
     int y = y1 + t * (y2 - y1);
     printf("Intersection point: (%d, %d)\n", x, y);
-}</pre>
+}
+</pre>
 <p><a href="/downloads/W15 video.mp4">教學影片</a></p><h1>線上繪圖</h1>
 <p><a href="https://mde.tw/cpnote/content/%E7%B7%9A%E4%B8%8A%E7%B9%AA%E5%9C%96.html?src=https://gist.githubusercontent.com/41223227/0d3fb93b6c601d27f0dfdf8dd2b87782/raw/cf4d86ee6203c5f301e2ae3b4f7c2a3cab2223c5/w14_1_helloworld.py">列印 10 次 Hello World</a></p>
 <p></p>
