@@ -1,7 +1,9 @@
+// 使用標準輸入/輸出函數
 #include <stdio.h>
+// 繪製gd函式庫
 #include <gd.h>
-#include <math.h>
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_uk_flag(gdImagePtr img);
 void fillTriangle(gdImagePtr img, int x1, int y1, int x2, int y2, int x3, int y3, int color);
 

@@ -1,7 +1,11 @@
+// 使用標準輸入/輸出函數
 #include <stdio.h>
+// 繪製gd函式庫
 #include <gd.h>
+// 繪製數學函數庫
 #include <math.h>
 
+// void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_chinese_flag(gdImagePtr img);
 
 int main() {

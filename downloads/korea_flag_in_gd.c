@@ -1,6 +1,7 @@
+// 使用標準輸入/輸出函數
 #include <stdio.h>
+// 繪製gd函式庫
 #include <gd.h>
-#include <math.h>
 
 #define WIDTH 900
 #define HEIGHT 600
