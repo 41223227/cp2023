@@ -150,7 +150,8 @@ img.add_border {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_usa_flag 函數
+// 聲明 draw_star 函數
 void draw_usa_flag(gdImagePtr img);
 void draw_star(gdImagePtr img, int x, int y, int size, int color);
 
@@ -227,8 +228,7 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color) {
 
     // Fill the star with white color
     gdImageFilledPolygon(img, points, 10, color);
-}
-</pre>
+}</pre>
 <p><img alt="" height="211" src="./../images/usa_flag.png" width="400"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -237,7 +237,8 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_roc_flag 函數
+// 聲明 draw_white_sun 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 
@@ -297,12 +298,10 @@ void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, 
         fromX = toX;
         fromY = toY;
    }
-}
-</pre>
+}</pre>
 <p><br/><br/></p>
 <p><img alt="" height="267" src="./../images/roc_flag1.png" width="400"/></p>
-<p></p>
-<br />w7 << <a href='w7.html'>Previous</a> <a href='w5.html'>Next</a> >> w5</div>
+<p></p><br />w7 << <a href='w7.html'>Previous</a> <a href='w5.html'>Next</a> >> w5</div>
         
     <!-- footer -->
       <div class="container">

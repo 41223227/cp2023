@@ -148,22 +148,22 @@ img.add_border {
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
-
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+ 
+// 聲明 draw_toc_flag 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
+ 
 int main() {
     // width 3: height 2
     int width = 1200;
     // 國旗長寬比為 3:2
     int height = (int)(width*2.0 / 3.0);
-
+ 
     gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
-
+ 
     draw_roc_flag(img);
-
+ 
     FILE *outputFile = fopen("roc_list_coord_flag.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
@@ -174,7 +174,7 @@ int main() {
     gdImageDestroy(img);
     return 0;
 }
-
+ 
 void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
@@ -192,11 +192,11 @@ void draw_roc_flag(gdImagePtr img) {
     draw_white_sun(img, center_x, center_y, sun_radius, white);
     gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
     gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
+ 
   // 第二組 ABED 四個點的座標
   int ax2, ay2, bx2, by2, ex2, ey2, dx2, dy2;
   gdPoint points2[4];
-
+ 
   ax2 = 375;
   ay2 = 70;
   bx2 = 264;
@@ -205,21 +205,21 @@ void draw_roc_flag(gdImagePtr img) {
   ey2 = 329;
   dx2 = 224;
   dy2 = 329;
-
+ 
   // 連接第二組 ABED 四個點的座標
   gdImageLine(img, ax2, ay2, bx2, by2, white);
   gdImageLine(img, bx2, by2, ex2, ey2, white);
   gdImageLine(img, ex2, ey2, dx2, dy2, white);
   gdImageLine(img, dx2, dy2, ax2, ay2, white);
-
+ 
 }
-
+ 
   void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
       float deg = M_PI/180;
       float sr = sun_radius/tan(75*deg);
       int ax, ay, bx, by, dx, dy, ex, ey;
       gdPoint points[4];
-
+ 
       ax = center_x;
       ay = center_y - sun_radius;
       bx = center_x - sun_radius*tan(15*deg);
@@ -228,14 +228,13 @@ void draw_roc_flag(gdImagePtr img) {
       ey = center_y + sun_radius;
       dx = center_x + sun_radius*tan(15*deg);
       dy = center_y;
-
+ 
       // 連接第二組 ABED 四個點的座標
       gdImageLine(img, ax, ay, bx, by, color);
       gdImageLine(img, bx, by, ex, ey, color);
       gdImageLine(img, ex, ey, dx, dy, color);
       gdImageLine(img, dx, dy, ax, ay, color);
-  }
-</pre>
+  }</pre>
 <p><img alt="" height="200" src="./../images/roc_list_coord_flag.png" width="300"/></p>
 <p>第二題:交點程式</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
@@ -245,7 +244,7 @@ void draw_roc_flag(gdImagePtr img) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_roc_flag 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr);
@@ -304,8 +303,7 @@ void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
     int y = y1 + t * (y2 - y1);
     printf("Intersection point: (%d, %d)\n", x, y);
 }</pre>
-<p><a href="./../downloads/W15 video.mp4">教學影片</a></p>
-<br />W16 << <a href='W16.html'>Previous</a> <a href='線上繪圖.html'>Next</a> >> 線上繪圖</div>
+<p><a href="./../downloads/W15 video.mp4">教學影片</a></p><br />W16 << <a href='W16.html'>Previous</a> <a href='線上繪圖.html'>Next</a> >> 線上繪圖</div>
         
     <!-- footer -->
       <div class="container">

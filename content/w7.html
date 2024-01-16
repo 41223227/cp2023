@@ -149,22 +149,23 @@ img.add_border {
 #include &lt;gd.h&gt;
 // 繪製數學函數庫
 #include &lt;math.h&gt;
-
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+ 
+// // 聲明 draw_roc_flag 函數
+// // 聲明 draw_white_sun 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
+ 
 int main() {
     // width 3: height 2
     int width = 1200;
     // 國旗長寬比為 3:2
     int height = (int)(width*2.0 / 3.0);
-
+ 
     gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
-
+ 
     draw_roc_flag(img);
-
+ 
     FILE *outputFile = fopen("./../images/roc_flag_in_gd.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
@@ -175,7 +176,7 @@ int main() {
     gdImageDestroy(img);
     return 0;
 }
-
+ 
 void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
@@ -205,9 +206,9 @@ void draw_roc_flag(gdImagePtr img) {
     // 利用一個藍色大圓與白色小圓畫出藍色環狀
     gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
     gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
+ 
 }
-
+ 
 void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
     // M_PI 大小定義於 math.h 標頭檔中, 因為三角函數中採用徑度為角度單位
     // 因此定義將角度轉為徑度的轉換變數為 deg, 角度值乘上 deg 就可轉為徑度
@@ -262,15 +263,14 @@ void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, 
     // 在菱形區域外圍畫線, 明確界定菱形範圍
     gdImagePolygon(img, points, 4, color);
     }
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="./../images/roc_flag_in_gd.png" width="300"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_japan_flag 函數
 void draw_japan_flag(gdImagePtr img);
 
 int main() {
@@ -311,8 +311,7 @@ void draw_japan_flag(gdImagePtr img) {
    int circle_x = width / 2;
    int circle_y = height / 2;
     gdImageFilledEllipse(img, circle_x, circle_y, circle_radius, circle_radius, red);
-}
-</pre>
+}</pre>
 <p><img alt="" height="300" src="./../images/japan_flag_in_gd.png" width="449"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -321,7 +320,7 @@ void draw_japan_flag(gdImagePtr img) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_chinese_flag 函數
 void draw_chinese_flag(gdImagePtr img);
 
 int main() {
@@ -400,15 +399,14 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotatio
 
     // 使用 gdImageFilledPolygon 绘制星形
     gdImageFilledPolygon(img, points, 10, color);
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="./../images/proc_flag.png" width="300"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_uk_flag 函數
 void draw_uk_flag(gdImagePtr img);
 void fillTriangle(gdImagePtr img, int x1, int y1, int x2, int y2, int x3, int y3, int color);
 
@@ -542,8 +540,7 @@ void draw_uk_flag(gdImagePtr img) {
     // 绘制红色十字
     gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cross_width, height, red);
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="./../images/uk_flag.png" width="400"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -904,11 +901,8 @@ if (outputFile == NULL) {
       fclose(outputFile);
       gdImageDestroy(im);
       return 0;
-  }
-
-</pre>
-<p><img alt="" height="200" src="./../images/korea_flag.png" width="300"/></p>
-<br />w12 << <a href='w12.html'>Previous</a> <a href='w6.html'>Next</a> >> w6</div>
+  }</pre>
+<p><img alt="" height="200" src="./../images/korea_flag.png" width="300"/></p><br />w12 << <a href='w12.html'>Previous</a> <a href='w6.html'>Next</a> >> w6</div>
         
     <!-- footer -->
       <div class="container">

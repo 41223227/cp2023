@@ -762,143 +762,143 @@ number*/
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
-
+ 
 #define WIDTH 800
 #define HEIGHT 600
 #define SCALE 100
-
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+ 
+// 聲明 drawResistor 函數
 void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
     int startX = x1 ;
     int endX = x1 + width ;
-
+ 
     // 第一段直线向前走一段
     gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上45度
     gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上90度
     gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上90度
     gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2 , startX + width / 4 + height / 2 + 4 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2 + 4 * height, y - height / 2, startX + width / 4 + height / 2 + 5 * height, y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
   // 向上45度
     gdImageLine(im, startX + width / 4 + height / 2 + 5 * height, y + height / 2, startX + width / 4 + height / 2 + 5 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
   gdImageLine(im, startX + width / 4 + height / 2 + 5 * height + height / 2, y, startX + width / 4 + height / 2 + 5 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
-
-
+ 
+ 
   {
     int startX = 100;
   gdImageColorAllocate(im, 0, 0, 255);
-
-
+ 
+ 
     // 第一段直线向前走一段
     gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上45度
     gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上90度
     gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上45度
       gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
  }
-
+ 
   {
     int startX = 585;
   gdImageColorAllocate(im, 0, 0, 255);
-
-
+ 
+ 
     // 第一段直线向前走一段
     gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上45度
     gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
   // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上90度
     gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
         // 向下90度
     gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     // 向上45度
       gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
-
+ 
     gdImageLine(im, 100, y +20, 700, y +20, gdImageColorAllocate(im, 0, 255, 0));
-
+ 
 }
 }
-
+ 
 int main() {
     gdImagePtr im;
     FILE *outputFile;
-
+ 
     // 创建图像对象
     im = gdImageCreateTrueColor(WIDTH, HEIGHT);
     if (im == NULL) {
         fprintf(stderr, "Error creating GD image.\n");
         return 1;
     }
-
+ 
     outputFile = fopen("1.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
         return 1;
     }
-
+ 
     int black, white, red, blue, green;
-
+ 
     black = gdImageColorAllocate(im, 0, 0, 0);
     white = gdImageColorAllocate(im, 255, 255, 255);
     red = gdImageColorAllocate(im, 255, 0, 0);
     blue = gdImageColorAllocate(im, 0, 0, 255);
 green = gdImageColorAllocate(im, 0, 255, 0);
     gdImageFilledRectangle(im, 0, 0, WIDTH - 1, HEIGHT - 1, white);
-
+ 
     // 绘制墙面
     gdImageLine(im, SCALE, SCALE, SCALE, HEIGHT - SCALE, black);
     gdImageLine(im, WIDTH - SCALE, SCALE, WIDTH - SCALE, HEIGHT - SCALE, black);
-
+ 
 // 绘制彈簧
     drawResistor(im, WIDTH / 3 + SCALE / 2, HEIGHT / 2, SCALE / 2, SCALE / 4);
-
+ 
     // 绘制质量（方形）
     gdImageFilledRectangle(im, WIDTH / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
     gdImageFilledRectangle(im, WIDTH * 2 / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH * 2 / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
-
+ 
   gdImageFilledRectangle(im, 100, HEIGHT +300, 700, HEIGHT /2 +49 , black);
-
-
-
+ 
+ 
+ 
     gdImagePng(im, outputFile);
     fclose(outputFile);
     gdImageDestroy(im);
-
+ 
     return 0;
 }</pre>
 <p><img alt="" height="200" src="/images/1.png" width="267"/></p>
@@ -984,29 +984,28 @@ int main() {
 }
 </pre>
 <p><img alt="" height="200" src="/images/motion_plot.png" width="267"/></p>
-<p></p>
-<h1>W15</h1>
+<p></p><h1>W15</h1>
 <p>第一題:</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
-
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+ 
+// 聲明 draw_toc_flag 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
+ 
 int main() {
     // width 3: height 2
     int width = 1200;
     // 國旗長寬比為 3:2
     int height = (int)(width*2.0 / 3.0);
-
+ 
     gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
-
+ 
     draw_roc_flag(img);
-
+ 
     FILE *outputFile = fopen("roc_list_coord_flag.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
@@ -1017,7 +1016,7 @@ int main() {
     gdImageDestroy(img);
     return 0;
 }
-
+ 
 void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
@@ -1035,11 +1034,11 @@ void draw_roc_flag(gdImagePtr img) {
     draw_white_sun(img, center_x, center_y, sun_radius, white);
     gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
     gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
+ 
   // 第二組 ABED 四個點的座標
   int ax2, ay2, bx2, by2, ex2, ey2, dx2, dy2;
   gdPoint points2[4];
-
+ 
   ax2 = 375;
   ay2 = 70;
   bx2 = 264;
@@ -1048,21 +1047,21 @@ void draw_roc_flag(gdImagePtr img) {
   ey2 = 329;
   dx2 = 224;
   dy2 = 329;
-
+ 
   // 連接第二組 ABED 四個點的座標
   gdImageLine(img, ax2, ay2, bx2, by2, white);
   gdImageLine(img, bx2, by2, ex2, ey2, white);
   gdImageLine(img, ex2, ey2, dx2, dy2, white);
   gdImageLine(img, dx2, dy2, ax2, ay2, white);
-
+ 
 }
-
+ 
   void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
       float deg = M_PI/180;
       float sr = sun_radius/tan(75*deg);
       int ax, ay, bx, by, dx, dy, ex, ey;
       gdPoint points[4];
-
+ 
       ax = center_x;
       ay = center_y - sun_radius;
       bx = center_x - sun_radius*tan(15*deg);
@@ -1071,14 +1070,13 @@ void draw_roc_flag(gdImagePtr img) {
       ey = center_y + sun_radius;
       dx = center_x + sun_radius*tan(15*deg);
       dy = center_y;
-
+ 
       // 連接第二組 ABED 四個點的座標
       gdImageLine(img, ax, ay, bx, by, color);
       gdImageLine(img, bx, by, ex, ey, color);
       gdImageLine(img, ex, ey, dx, dy, color);
       gdImageLine(img, dx, dy, ax, ay, color);
-  }
-</pre>
+  }</pre>
 <p><img alt="" height="200" src="/images/roc_list_coord_flag.png" width="300"/></p>
 <p>第二題:交點程式</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
@@ -1088,7 +1086,7 @@ void draw_roc_flag(gdImagePtr img) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_roc_flag 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr);
@@ -1147,8 +1145,7 @@ void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
     int y = y1 + t * (y2 - y1);
     printf("Intersection point: (%d, %d)\n", x, y);
 }</pre>
-<p><a href="/downloads/W15 video.mp4">教學影片</a></p>
-<h1>線上繪圖</h1>
+<p><a href="/downloads/W15 video.mp4">教學影片</a></p><h1>線上繪圖</h1>
 <p><a href="https://mde.tw/cpnote/content/%E7%B7%9A%E4%B8%8A%E7%B9%AA%E5%9C%96.html?src=https://gist.githubusercontent.com/41223227/0d3fb93b6c601d27f0dfdf8dd2b87782/raw/cf4d86ee6203c5f301e2ae3b4f7c2a3cab2223c5/w14_1_helloworld.py">列印 10 次 Hello World</a></p>
 <p></p>
 <h1>w13</h1>
@@ -1279,22 +1276,23 @@ return 1;
 #include &lt;gd.h&gt;
 // 繪製數學函數庫
 #include &lt;math.h&gt;
-
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+ 
+// // 聲明 draw_roc_flag 函數
+// // 聲明 draw_white_sun 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
-
+ 
 int main() {
     // width 3: height 2
     int width = 1200;
     // 國旗長寬比為 3:2
     int height = (int)(width*2.0 / 3.0);
-
+ 
     gdImagePtr img = gdImageCreateTrueColor(width, height);
     gdImageAlphaBlending(img, 0);
-
+ 
     draw_roc_flag(img);
-
+ 
     FILE *outputFile = fopen("./../images/roc_flag_in_gd.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
@@ -1305,7 +1303,7 @@ int main() {
     gdImageDestroy(img);
     return 0;
 }
-
+ 
 void draw_roc_flag(gdImagePtr img) {
     int width = gdImageSX(img);
     int height = gdImageSY(img);
@@ -1335,9 +1333,9 @@ void draw_roc_flag(gdImagePtr img) {
     // 利用一個藍色大圓與白色小圓畫出藍色環狀
     gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
     gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
-
+ 
 }
-
+ 
 void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
     // M_PI 大小定義於 math.h 標頭檔中, 因為三角函數中採用徑度為角度單位
     // 因此定義將角度轉為徑度的轉換變數為 deg, 角度值乘上 deg 就可轉為徑度
@@ -1392,15 +1390,14 @@ void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, 
     // 在菱形區域外圍畫線, 明確界定菱形範圍
     gdImagePolygon(img, points, 4, color);
     }
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="/images/roc_flag_in_gd.png" width="300"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_japan_flag 函數
 void draw_japan_flag(gdImagePtr img);
 
 int main() {
@@ -1441,8 +1438,7 @@ void draw_japan_flag(gdImagePtr img) {
    int circle_x = width / 2;
    int circle_y = height / 2;
     gdImageFilledEllipse(img, circle_x, circle_y, circle_radius, circle_radius, red);
-}
-</pre>
+}</pre>
 <p><img alt="" height="300" src="/images/japan_flag_in_gd.png" width="449"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -1451,7 +1447,7 @@ void draw_japan_flag(gdImagePtr img) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_chinese_flag 函數
 void draw_chinese_flag(gdImagePtr img);
 
 int main() {
@@ -1530,15 +1526,14 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotatio
 
     // 使用 gdImageFilledPolygon 绘制星形
     gdImageFilledPolygon(img, points, 10, color);
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="/images/proc_flag.png" width="300"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_uk_flag 函數
 void draw_uk_flag(gdImagePtr img);
 void fillTriangle(gdImagePtr img, int x1, int y1, int x2, int y2, int x3, int y3, int color);
 
@@ -1672,8 +1667,7 @@ void draw_uk_flag(gdImagePtr img) {
     // 绘制红色十字
     gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cross_width, height, red);
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
-}
-</pre>
+}</pre>
 <p><img alt="" height="200" src="/images/uk_flag.png" width="400"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -2034,11 +2028,8 @@ if (outputFile == NULL) {
       fclose(outputFile);
       gdImageDestroy(im);
       return 0;
-  }
-
-</pre>
-<p><img alt="" height="200" src="/images/korea_flag.png" width="300"/></p>
-<h1>w6</h1>
+  }</pre>
+<p><img alt="" height="200" src="/images/korea_flag.png" width="300"/></p><h1>w6</h1>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
@@ -2046,7 +2037,8 @@ if (outputFile == NULL) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_usa_flag 函數
+// 聲明 draw_star 函數
 void draw_usa_flag(gdImagePtr img);
 void draw_star(gdImagePtr img, int x, int y, int size, int color);
 
@@ -2123,8 +2115,7 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color) {
 
     // Fill the star with white color
     gdImageFilledPolygon(img, points, 10, color);
-}
-</pre>
+}</pre>
 <p><img alt="" height="211" src="/images/usa_flag.png" width="400"/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
 #include &lt;stdio.h&gt;
@@ -2133,7 +2124,8 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color) {
 // 繪製數學函數庫
 #include &lt;math.h&gt;
 
-// void因不會回傳任何值而用於紀錄所需的各項指令及參數
+// 聲明 draw_roc_flag 函數
+// 聲明 draw_white_sun 函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 
@@ -2193,12 +2185,10 @@ void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, 
         fromX = toX;
         fromY = toY;
    }
-}
-</pre>
+}</pre>
 <p><br/><br/></p>
 <p><img alt="" height="267" src="/images/roc_flag1.png" width="400"/></p>
-<p></p>
-<h1>w5</h1>
+<p></p><h1>w5</h1>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 包含標準輸出入程式庫的標頭文件
 // https://blog.csdn.net/weixin_38468077/article/details/101069365
 // http://www.gnuplot.info/demo/
@@ -2258,8 +2248,7 @@ cc gnuplot_ex1.c
 <p><span><span><span><span><span>G：已完成C結合gd繪圖方案庫，畫出 </span></span><a href="https://en.wikipedia.org/wiki/Flag_of_China"><span><span>PROC<span> </span></span></span></a><span><span><span>（</span></span></span><a href="https://en.wikipedia.org/wiki/Flag_of_China#/media/File:Flag_of_China_(construction_sheet).svg"><span><span>規格</span></span></a><span><span><span>），</span></span><span> </span></span><a href="https://en.wikipedia.org/wiki/Flag_of_the_United_Kingdom"><span><span>英國</span></span></a><span><span><span>（</span></span></span><a href="https://en.wikipedia.org/wiki/Flag_of_the_United_Kingdom#/media/File:Flag_of_the_United_Kingdom_(1-2)_(construction_sheet).svg"><span><span>規格</span></span></a><span><span><span>），</span></span><span> </span></span><a href="https://en.wikipedia.org/wiki/Flag_of_Japan"><span><span>日本</span></span></a><span><span><span>（</span></span></span><a href="https://en.wikipedia.org/wiki/Flag_of_Japan#/media/File:Construction_sheet_of_the_Japanese_flag_EN.svg"><span><span>規格</span></span></a><span><span><span>）與</span></span><span> </span></span><a href="https://en.wikipedia.org/wiki/Flag_of_South_Korea"><span><span>韓國</span></span></a><span><span><span>（</span></span></span><a href="https://en.wikipedia.org/wiki/Flag_of_South_Korea#/media/File:Flag_of_South_Korea_(construction_sheet).svg"><span><span>規格</span></span></a><span><span><span>）標誌 - <span> </span></span></span><a href="https://41223209.github.io/cp2023/content/w7.html"><span><span>w7</span></span></a></span></span></span></span></p>
 <p><span><span><span><span><span><span>H：已完成 w16 最終專案 -<span> </span></span></span><a href="https://41223209.github.io/cp2023/content/w16.html"><span><span>w16</span></span></a></span></span></span></span></p>
 <h1>期末總結</h1>
-<p>我認為自己在學期末有65分，雖然整學期下來有幾周的課程作業還是有許多不懂，但在回家時我會看老師上課所錄製的影片並把影片中的所做得內容做出來。</p>
-<h1>Brython</h1>
+<p>我認為自己在學期末有75分，</p><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
