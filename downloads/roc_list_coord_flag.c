@@ -5,6 +5,7 @@
 #include <gd.h>
 #include <math.h>
 
+// 圖形繪製函數
 void draw_roc_flag(gdImagePtr img);
 void draw_white_sun(gdImagePtr img, int x, int y, int size, int color);
 
@@ -39,9 +40,9 @@ void draw_roc_flag(gdImagePtr img) {
     int sun_radius = (int)(width / 8);
     int white_circle_dia = sun_radius;
     int blue_circle_dia = white_circle_dia + white_circle_dia * 2 / 15;
-    red = gdImageColorAllocate(img, 255, 0, 0);
-    white = gdImageColorAllocate(img, 255, 255, 255);
-    blue = gdImageColorAllocate(img, 0, 0, 149);
+    red = gdImageColorAllocate(img, 255, 0, 0);// 紅色
+    white = gdImageColorAllocate(img, 255, 255, 255);// 白色
+    blue = gdImageColorAllocate(img, 0, 0, 149);// 藍色
     gdImageFilledRectangle(img, 0, 0, width, height, red);
     gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
     draw_white_sun(img, center_x, center_y, sun_radius, white);
