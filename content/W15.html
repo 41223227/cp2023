@@ -148,8 +148,6 @@ img.add_border {
 #include &lt;stdio.h&gt;
 // 繪製gd函式庫
 #include &lt;gd.h&gt;
-// 繪製數學函數庫
-#include &lt;math.h&gt;
 
 // void因不會回傳任何值而用於紀錄所需的各項指令及參數
 void draw_roc_flag(gdImagePtr img);
@@ -237,7 +235,7 @@ void draw_roc_flag(gdImagePtr img) {
       gdImageLine(img, ex, ey, dx, dy, color);
       gdImageLine(img, dx, dy, ax, ay, color);
   }
-  </pre>
+</pre>
 <p><img alt="" height="200" src="./../images/roc_list_coord_flag.png" width="300"/></p>
 <p>第二題:交點程式</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 使用標準輸入/輸出函數
@@ -305,8 +303,7 @@ void find_intersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr) {
     int x = x1 + t * (x2 - x1);
     int y = y1 + t * (y2 - y1);
     printf("Intersection point: (%d, %d)\n", x, y);
-}
-</pre>
+}</pre>
 <p><a href="./../downloads/W15 video.mp4">教學影片</a></p><br />W16 << <a href='W16.html'>Previous</a> <a href='線上繪圖.html'>Next</a> >> 線上繪圖</div>
         
     <!-- footer -->
